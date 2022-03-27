@@ -1,3 +1,5 @@
+import AlarmList from './AlarmList';
+
 function HomePage(props) {
     const triggerMentalTasks = () => {
         props.setPage('mental-tasks');
@@ -10,6 +12,8 @@ function HomePage(props) {
     return (
         <div id="homepage">
             <p>Home page</p>
+            
+            <AlarmList/>
             <table className="footer-table">
                 <tr>
                     <td>
