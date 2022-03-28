@@ -4,7 +4,8 @@ function Time(props) {
         return (
             <p>{ Math.floor(props.seconds/60) }:{ (props.seconds%60).toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false }) }</p>
         );
-    } else {
+    }
+    else {
         return (
             <p>Time's up!</p>
         ); 
