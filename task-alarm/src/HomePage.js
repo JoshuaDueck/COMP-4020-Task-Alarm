@@ -7,11 +7,17 @@ function HomePage(props) {
         props.setPage('physical-tasks');
     }
 
+    const triggerAlarmNew = () => {
+        props.setPage('alarm-new');
+    }
     return (
         <div id="homepage">
             <p>Home page</p>
             <table className="footer-table">
-                <tr>
+                <tr>                    
+                    <td>
+                        <button className="task-button" onClick={() => triggerAlarmNew()}>new alarm</button>
+                    </td>
                     <td>
                         <button className="task-button" onClick={() => triggerMentalTasks()}>Practice Mental Tasks</button>
                     </td>
