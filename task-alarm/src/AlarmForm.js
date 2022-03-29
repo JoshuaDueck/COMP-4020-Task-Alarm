@@ -36,11 +36,16 @@ function AlarmForm(props) {
     e.preventDefault();
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
-      text: input,
       diff: inputDiff,
+
+      text: input
     });
-    setInput("");
+    console.log(input);
+    console.log(inputDiff);
+
     setInputDiff("");
+    setInput("");
+
   };
 
   return (
@@ -56,13 +61,14 @@ function AlarmForm(props) {
                 contentLabel="Example Modal"
               >
                 <div className="rectangle">
-                  <TimePicker
-                    placeholder="Update your item"
+                <TimePicker
+                    placeholder="Add a alarm"
                     value={input}
                     onChange={setInput}
                     name="text"
-                    ref={inputRef}
                     className="alarm-input"
+                    ref={inputRef}
+                    disableClock = "true"
                   />
 
                   <Container className="conta">
@@ -102,15 +108,16 @@ function AlarmForm(props) {
                     disableClock = "true"
                   />
                   <Container className="conta">
+                  <div class="wrap">
+                      <span>Difficulty</span>
+                    </div>
                     <Select
                       className="diffChoice"
                       options={options}
                       value={inputDiff}
                       onChange={setInputDiff}
                     />
-                    <div class="wrap">
-                      <span>Difficulty</span>
-                    </div>
+
                   </Container>
                 </div>
                 <div class="vertical-center">
