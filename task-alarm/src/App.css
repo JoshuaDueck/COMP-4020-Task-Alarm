@@ -46,6 +46,41 @@ html, body {
   height: 100px;
 }
 
+.phnImg {
+  margin:auto;
+  top: 40%;
+  left: 0%;
+  right: 0%;
+  position: absolute;
+  color: green;
+}
+
+.redImg{
+  margin:auto;
+  top: 40%;
+  left: 0%;
+  right: 0%;
+  position: absolute;
+  color: red;
+}
+
+
+.command{
+  margin:auto;
+  top:20%;
+  position:absolute;
+  left:0%;
+  right:0%;
+}
+
+.shakeTimer{
+  margin: auto;
+  position: absolute;
+  bottom: 10%;
+  left: 0%;
+  right:0%;
+  font-size: 30px;
+
 .mental-task-table {
   margin: auto;
   left: 0px;
