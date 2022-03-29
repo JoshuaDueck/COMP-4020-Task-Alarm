@@ -18,10 +18,19 @@ html, body {
 .header-table {
   margin: auto;
   width: 90%;
-  position: absolute;
+  height: 20px;
+  position: relative;
   top: 20px;
   left: 0px;
   right: 0px;
+}
+
+.header {
+  background-color: #f1f1f1;
+  height: 70px;
+  margin-bottom: 20px;
+  font-size: large;
+  font-weight: bold;
 }
 
 .header-table-side {
@@ -72,4 +81,55 @@ html, body {
   right:0%;
   font-size: 30px;
 
+.mental-task-table {
+  margin: auto;
+  left: 0px;
+  right: 0px;
+}
+
+.mental-task-cell {
+  height: 150px;
+  width: 150px;
+  border: 3px dashed black;
+  background-color: gainsboro;
+  font-size: 80px;
+  vertical-align: middle;
+}
+
+.mental-task-cell-selected {
+  height: 150px;
+  width: 150px;
+  border: 3px solid #000;
+  background-color: #AAAAAA;
+  font-size: 80px;
+  vertical-align: middle;
+}
+
+.target-message {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.target-number {
+  font-size: 50px;
+  font-weight: bold;
+  color: #000;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.mental-task-submit-button {
+  width: 80px;
+  height: 80px;
+  font-weight: bold;
+  font-size: 15px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.correct-counter {
+  font-size: 20px;
+  margin: 0px;
 }
