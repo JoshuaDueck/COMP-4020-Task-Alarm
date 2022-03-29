@@ -55,7 +55,7 @@ html, body {
   color: green;
 }
 
-.redImg{
+.redImg {
   margin:auto;
   top: 40%;
   left: 0%;
@@ -65,7 +65,7 @@ html, body {
 }
 
 
-.command{
+.command {
   margin:auto;
   top:20%;
   position:absolute;
@@ -73,13 +73,14 @@ html, body {
   right:0%;
 }
 
-.shakeTimer{
+.shakeTimer {
   margin: auto;
   position: absolute;
   bottom: 10%;
   left: 0%;
   right:0%;
   font-size: 30px;
+}
 
 .mental-task-table {
   margin: auto;
