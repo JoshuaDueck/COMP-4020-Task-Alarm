@@ -44,7 +44,7 @@ function closeModal() {
       key={index}
     >
       <div key={alarm.id} onClick={() => completeAlarm(alarm.id)}>
-        {alarm.text}
+        {alarm.text} {alarm.diff.value} 
       </div>
       <div className='icons'>
         <RiCloseCircleLine

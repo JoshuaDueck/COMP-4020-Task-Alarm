@@ -15,6 +15,7 @@ function AlarmList(props) {
     // references are now sync'd and can be accessed.
     //subtitle.style.color = '#f00';
   }
+  Modal.setAppElement('#root');
 
   function closeModal() {
     setIsOpen(false);
@@ -23,7 +24,7 @@ function AlarmList(props) {
     if (!alarm.text || /^\s*$/.test(alarm.text)) {
       return;
     }
-
+    console.log(alarm)
     const newAlarms = [alarm, ...alarms];
     closeModal();
     setAlarms(newAlarms);
@@ -34,7 +35,7 @@ function AlarmList(props) {
     if (!newValue.text || /^\s*$/.test(newValue.text)) {
       return;
     }
-
+    console.log(newValue);
     setAlarms(prev => prev.map(item => (item.id === alarmId ? newValue : item)));
   };
 
