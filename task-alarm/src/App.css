@@ -64,11 +64,9 @@ html, body {
   color: red;
 }
 
-
 .command {
   margin:auto;
-  top:20%;
-  position:absolute;
+  font-size: 40px;
   left:0%;
   right:0%;
 }

@@ -5,12 +5,30 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMobile} from "@fortawesome/free-solid-svg-icons";
 
 
-function PhysicalTask() {
+function PhysicalTask(props) {
     const [secondsRemaining, setSecondsRemaining] = useState(300);
-    
+    const [doShake, setDoShake] = useState(true);
+    const [secondsInTask, setSecondsInTask] = useState(1);
+    const [goalSeconds, setGoalSeconds] = useState(100);
+
     useEffect(() => {
         const interval = setInterval(() => {
             setSecondsRemaining(secondsRemaining - 1);
+            setSecondsInTask(secondsInTask + 1);
+
+            if (secondsInTask >= goalSeconds) {
+                props.setPage('success');
+            }
+
+            if (doShake) {
+                if (secondsInTask % 10 === 0) {
+                    setDoShake(false);
+                }
+            } else {
+                if (secondsInTask % 5 === 0) {
+                    setDoShake(true);
+                }
+            }
         }, 1000);
         return () => clearInterval(interval);
     })
@@ -19,30 +37,28 @@ function PhysicalTask() {
     const handleBack = () => {
         window.location.href = './';
     }
-    var instruction;
-    const setPhnColor= () => {
-        if(secondsRemaining <=295 && secondsRemaining >290) 
-        {
-            instruction="Stop!";
-            return <div className="redImg"><FontAwesomeIcon icon={faMobile} fontSize="200px"> </FontAwesomeIcon> </div>
-        }
-        else
-        {
-            instruction="Shake your phone";
-            return <div className="phnImg"><FontAwesomeIcon icon={faMobile} fontSize="200px" shake> </FontAwesomeIcon> </div>
-        }
+
+    if (doShake) {
+        return (
+            <div className="physical-task">
+                <Header left={<button onClick={() => handleBack()}>Back</button>} title="Physical Task" right={<Time seconds={secondsRemaining} />} />
+                <div className="phnImg"><FontAwesomeIcon icon={faMobile} fontSize="200px" shake> </FontAwesomeIcon> </div>
+                <div className="command"><h2>KEEP SHAKING!</h2></div>
+                <div className="shakeTimer">{secondsInTask}/{goalSeconds} <br/>seconds</div>
+            </div>
+        );
+    } else {
+        return (
+            <div className="physical-task">
+                <Header left={<button onClick={() => handleBack()}>Back</button>} title="Physical Task" right={<Time seconds={secondsRemaining} />} />
+                <div className="redImg"><FontAwesomeIcon icon={faMobile} fontSize="200px"> </FontAwesomeIcon> </div>
+                <div className="command"><h2>WAIT!</h2></div>
+                <div className="shakeTimer">{secondsInTask}/{goalSeconds} <br/>seconds</div>
+            </div>
+        );
     }
 
-    return (
-        <div id="physical-task">
-            <Header left={<button onClick={() => handleBack()}>Back</button>} title="Pysical Task" right={<Time seconds={secondsRemaining} />} />
-            {setPhnColor()}
-            <div className="command">{<h2>{instruction}</h2>} </div>
-            <div className="shakeTimer">{<Time seconds={secondsRemaining-240}> </Time>} </div>
-      
 
-        </div>
-    );
 }
 
 export default PhysicalTask;

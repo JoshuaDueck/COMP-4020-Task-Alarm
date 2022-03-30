@@ -19,7 +19,6 @@ function MentalTaskView(props) {
 
     return (
         <div className="mental-task-view">
-            <p className="correct-counter">Correct: { props.numCorrect }/{ props.numToWin }</p>
             <p className="target-message">Select numbers that add up to</p>
             <p className="target-number">{props.target}</p>
             <table className="mental-task-table">

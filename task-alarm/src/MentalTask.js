@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import Time from './Time';
 import MentalTaskView from './MentalTaskView';
-import { Modal } from 'bootstrap';
 
 function MentalTask(props) {
     const [secondsRemaining, setSecondsRemaining] = useState(300);
@@ -43,7 +42,7 @@ function MentalTask(props) {
                 setSecondsRemaining(secondsRemaining - 1);
             } else if (taskState === 'running') {
                 setTaskState('time-out');
-                props.setPage('time-out');
+                props.setPage('restarting-alarm');
             }
         }, 1000);
         return () => clearInterval(interval);
@@ -74,8 +73,8 @@ function MentalTask(props) {
 
     return (
         <div id="mental-task">
-            <Header left={<button onClick={() => handleBack()}>Back</button>} title="Mental Task" right={<Time seconds={secondsRemaining} />} />
-            <MentalTaskView numbers={numbers} target={targetNumber} handleSubmit={(selectedIndices) => handleSubmit(selectedIndices)} numCorrect={numCorrect} numToWin={numToWin}/>
+            <Header left={<button onClick={() => handleBack()}>Back</button>} title={ "Tasks Correct: "+numCorrect+"/"+numToWin } right={<Time seconds={secondsRemaining} />} />
+            <MentalTaskView numbers={numbers} target={targetNumber} handleSubmit={(selectedIndices) => handleSubmit(selectedIndices)}/>
         </div>
     );
 }

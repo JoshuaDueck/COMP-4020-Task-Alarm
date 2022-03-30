@@ -27,7 +27,7 @@ function App() {
   } else if (page === 'physical-tasks') {
     return (
       <div className="App">
-        <PhysicalTask />
+        <PhysicalTask setPage={setPage} />
       </div>
     );
   } else if (page === 'time-out') {
