@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
 
@@ -10,12 +9,13 @@ import Success from './Success';
 import RestartingAlarm from './RestartingAlarm';
 
 function App() {
+  const [alarmList, setAlarmList] = useState([]);
   const [page, setPage] = useState('home');
 
   if (page === 'home') {
     return (
       <div className="App">
-        <HomePage setPage={setPage} />
+        <HomePage setPage={setPage} alarmList={alarmList} setAlarmList={(newList) => setAlarmList(newList)}/>
       </div>
     );
   } else if (page === 'mental-tasks') {

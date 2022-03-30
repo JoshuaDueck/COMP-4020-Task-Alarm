@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import Time from './Time';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMobile} from "@fortawesome/free-solid-svg-icons";
+import { faMobile } from "@fortawesome/free-solid-svg-icons";
 
 
 function PhysicalTask(props) {
     const [secondsRemaining, setSecondsRemaining] = useState(300);
     const [doShake, setDoShake] = useState(true);
     const [secondsInTask, setSecondsInTask] = useState(1);
-    const [goalSeconds, setGoalSeconds] = useState(100);
+    const goalSeconds = 60;
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -35,7 +35,7 @@ function PhysicalTask(props) {
 
 
     const handleBack = () => {
-        window.location.href = './';
+        props.setPage('restarting-alarm');
     }
 
     if (doShake) {

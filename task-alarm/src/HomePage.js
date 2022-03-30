@@ -3,7 +3,6 @@ import AlarmList from "./AlarmList";
 import React, { useState } from "react";
 
 function HomePage(props) {
-    const [alarmList, setAlarmList] = useState([]);
     const [pageState, setPageState] = useState('viewing-alarms');
     const [alarmToEdit, setAlarmToEdit] = useState(null);
 
@@ -25,7 +24,10 @@ function HomePage(props) {
 
     const saveAlarm = (alarm) => {
         console.log(alarm);
-        setAlarmList([...alarmList, alarm]);
+        
+        if (alarm.time !== "") {
+            props.setAlarmList([...props.alarmList, alarm]);
+        }
         setAlarmToEdit(null);
         setPageState('viewing-alarms');
     }
@@ -38,27 +40,30 @@ function HomePage(props) {
 
     const saveEditedAlarm = (alarm) => {
         console.log(alarm);
-        setAlarmList(alarmList.map(alarmItem => {
-            if (alarmItem.id === alarm.id) {
-                return alarm;
-            } else {
-                return alarmItem;
-            }
-        }));
+
+        if (alarm.time !== "") {
+            props.setAlarmList(props.alarmList.map(alarmItem => {
+                if (alarmItem.id === alarm.id) {
+                    return alarm;
+                } else {
+                    return alarmItem;
+                }
+            }));
+        }
         setAlarmToEdit(null);
         setPageState('viewing-alarms');
     }
 
     const deleteAlarm = (alarmId) => {
         console.log("Deleting alarm! " + alarmId);
-        setAlarmList(alarmList.filter(alarm => alarm.id !== alarmId));
+        props.setAlarmList(props.alarmList.filter(alarm => alarm.id !== alarmId));
     }
 
     if (pageState === 'viewing-alarms') {
         return (
             <div id="homepage">
                 <Header title="Alarms" right={<button className="new-alarm-button" onClick={addAlarm}>+</button>}/>
-                <AlarmList alarms={alarmList} onEdit={(alarmId) => editAlarm(alarmId)} onDelete={(alarmId) => deleteAlarm(alarmId)}/>
+                <AlarmList alarms={props.alarmList} onEdit={(alarmId) => editAlarm(alarmId)} onDelete={(alarmId) => deleteAlarm(alarmId)}/>
                 <table className="footer-table">
                     <tr>
                         <td>
@@ -79,6 +84,8 @@ function HomePage(props) {
                     <label>
                         <input className="time-input" type="time" name="time" />
                     </label>
+                    <br/>
+                    <br/>
                     <label>
                         <select className="difficulty-input" name="difficulty">
                             <option value="Easy">Easy</option>
@@ -90,12 +97,16 @@ function HomePage(props) {
             </div>
         );
     } else if (pageState === 'editing-alarm') {
-        let alarmObj = alarmList.find((alarm) => alarm.id === alarmToEdit);
+        let alarmObj = props.alarmList.find((alarm) => alarm.id === alarmToEdit);
         return (
             <div>
                 <Header left={<button onClick={() => handleBack()}>Back</button>} title="Edit Alarm" />
                 <form className="add-alarm-form">
-                    <input className="time-input" type="time" name="time" defaultValue={ alarmObj.time }/>
+                    <label>
+                        <input className="time-input" type="time" name="time" defaultValue={ alarmObj.time }/>
+                    </label>
+                    <br/>
+                    <br/>
                     <label>
                         <select className="difficulty-input" name="difficulty" defaultValue={ alarmObj.type }>
                             <option value="Easy">Easy</option>

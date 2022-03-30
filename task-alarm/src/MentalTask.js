@@ -11,7 +11,8 @@ function MentalTask(props) {
     const [targetNumber, setTargetNumber] = useState(29);
     const [numbers, setNumbers] = useState([18,12,27,11]);
     const [numCorrect, setNumCorrect] = useState(0);
-    const [numToWin, setNumToWin] = useState(5);
+    
+    const numToWin = 5;
 
     const hardcodedStages = [
         {
@@ -49,7 +50,13 @@ function MentalTask(props) {
     });
 
     const handleBack = () => {
-        window.location.href = './';
+        props.setPage('restarting-alarm');
+    }
+
+    const skip = () => {
+        setCurrStage((currStage + 1) % hardcodedStages.length);
+        setNumbers(hardcodedStages[currStage].numbers);
+        setTargetNumber(hardcodedStages[currStage].target);
     }
 
     const handleSubmit = (selectedIndices) => {
@@ -74,7 +81,7 @@ function MentalTask(props) {
     return (
         <div id="mental-task">
             <Header left={<button onClick={() => handleBack()}>Back</button>} title={ "Tasks Correct: "+numCorrect+"/"+numToWin } right={<Time seconds={secondsRemaining} />} />
-            <MentalTaskView numbers={numbers} target={targetNumber} handleSubmit={(selectedIndices) => handleSubmit(selectedIndices)}/>
+            <MentalTaskView numbers={numbers} target={targetNumber} handleSubmit={(selectedIndices) => handleSubmit(selectedIndices)} handleSkip={() => skip()}/>
         </div>
     );
 }
