@@ -132,3 +132,66 @@ html, body {
   font-size: 20px;
   margin: 0px;
 }
+
+.alarm-list-table {
+  margin: auto;
+  border-collapse: collapse;
+  top: 20px;
+  left: 0px;
+  right: 0px;
+}
+
+.alarm-table-row {
+  border: 3px solid black;
+  padding: 10px;
+}
+
+.alarm-table-cell {
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.time-input {
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.difficulty-input {
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.alarm-toggle {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.alarm-action {
+  height: 30px;
+  margin-right: 10px;
+}
+
+.save-button {
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  display: block;
+  margin: auto;
+  left: 0px;
+  right: 0px;
+  margin-top: 20px;
+}
+
+.new-alarm-button {
+  font-size: 20px;
+}
