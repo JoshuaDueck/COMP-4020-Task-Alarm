@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import MentalTaskCell from './MentalTaskCell';
 
 function MentalTaskView(props) {
@@ -17,6 +17,11 @@ function MentalTaskView(props) {
         setSelectedIndices([]);
     }
 
+    const handleSkip = () => {
+        props.handleSkip();
+        setSelectedIndices([]);
+    }
+
     return (
         <div className="mental-task-view">
             <p className="target-message">Select numbers that add up to</p>
@@ -32,6 +37,7 @@ function MentalTaskView(props) {
                 </tr>
             </table>
             <button className="mental-task-submit-button" onClick={() => handleSubmit()}>Submit</button>
+            <p className="mental-task-skip-button" onClick={() => handleSkip()}>{"Skip >"}</p>
         </div>
     );
 }
