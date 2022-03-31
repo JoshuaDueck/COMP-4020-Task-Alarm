@@ -85,14 +85,16 @@ function HomePage(props) {
 
                 <form className="add-alarm-form">
                 <div className="lowerBox">
-
-                    <label>
+                <li>
+                    
                         <input className="time-input" type="time" name="time" defaultValue='00:00'/>
-                    </label>
+                    
+                    </li>
                     <br/>
                     <br/>
-                    <div className="lowerBox">
                     </div>
+
+                    <div className="lowerBox">
 
                     <li>
                         <select className="difficulty-input" name="difficulty" >

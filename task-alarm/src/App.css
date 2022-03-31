@@ -157,22 +157,6 @@ html, body {
 
 }
 
-.time-input {
-  width: 90%;
-  height: 50px;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.difficulty-input {
-  width: 100px;
-  height: 50px;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-}
-
 .alarm-toggle {
   width: 30px;
   height: 30px;
@@ -274,7 +258,7 @@ html, body {
 
 .rectBox {
   height: 100%;
-  width:60%;
+  width:80%;
   padding: 10px;
   margin: auto;
   border:transparent;
@@ -284,28 +268,33 @@ html, body {
 
 .time-input{
   border:3px solid black;
+  width: 200px;
+  height: 50px;
+  margin: auto;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+
 }
 
 .difficulty-input{
   border:3px solid black;
-  height:10%;
   margin: auto;
-  width: 70%;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
 
 }
+
+
 
 .lowerBox{
   list-style-type: none;
   align-items: center;
-  padding: 10px;
-  margin: auto;
 
 }
 
 .lowerBox li {
-  margin: auto;
-  width: 90%;
-  padding: 10px;
   align-items: center;
 }
 
