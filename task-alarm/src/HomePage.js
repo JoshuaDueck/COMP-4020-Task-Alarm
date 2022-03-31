@@ -82,14 +82,17 @@ function HomePage(props) {
             <div className="alarmEdit">
                 <Header title="Add Alarm" />
                 <div className="rectBox">
+
                 <form className="add-alarm-form">
+                <div className="lowerBox">
+
                     <label>
                         <input className="time-input" type="time" name="time" defaultValue='00:00'/>
                     </label>
                     <br/>
                     <br/>
                     <div className="lowerBox">
-                   
+                    </div>
 
                     <li>
                         <select className="difficulty-input" name="difficulty" >
