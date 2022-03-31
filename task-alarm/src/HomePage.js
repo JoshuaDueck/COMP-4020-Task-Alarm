@@ -5,6 +5,7 @@ import React, { useState , Component} from "react";
 function HomePage(props) {
     const [pageState, setPageState] = useState('viewing-alarms');
     const [alarmToEdit, setAlarmToEdit] = useState(null);
+    const [input, setInput] = useState('10:00');
 
     const handleBack = () => {
         setPageState('viewing-alarms');
@@ -83,12 +84,12 @@ function HomePage(props) {
                 <div className="rectBox">
                 <form className="add-alarm-form">
                     <label>
-                        <input className="time-input" type="time" name="time" />
+                        <input className="time-input" type="time" name="time" defaultValue='00:00'/>
                     </label>
                     <br/>
                     <br/>
                     <div className="lowerBox">
-                    <li className="difficultText">Difficulty</li>
+                   
 
                     <li>
                         <select className="difficulty-input" name="difficulty" >

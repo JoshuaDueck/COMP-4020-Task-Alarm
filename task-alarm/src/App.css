@@ -166,7 +166,7 @@ html, body {
 }
 
 .difficulty-input {
-  width: 150px;
+  width: 100px;
   height: 50px;
   font-size: 20px;
   font-weight: bold;
@@ -192,7 +192,7 @@ html, body {
   font-weight: bold;
   display:inline;
   margin: auto;
-  width: 50%;
+  width: 70%;
   left: 0px;
   right: 0px;
   background-color: transparent;
@@ -205,13 +205,14 @@ html, body {
   font-size: 20px;
   padding: 20px;
   margin: auto;
-  width: 50%;
-  background-color: transparent;
-  border: 3px solid black;
+  width: 60%;
+  height: 60%;
 }
 
 .bottom-button-element.back{
   border: none;
+  height: 20%;
+  background-color: transparent;
 }
 
 .new-alarm-button {
@@ -276,7 +277,7 @@ html, body {
   width:60%;
   padding: 10px;
   margin: auto;
-  border:3px solid black;
+  border:transparent;
   padding-top: 20px;
   text-align: center;
 }
@@ -287,22 +288,25 @@ html, body {
 
 .difficulty-input{
   border:3px solid black;
-  width: 110%;
-  height:10%
+  height:10%;
+  margin: auto;
+  width: 90%;
+
 }
 
 .lowerBox{
   list-style-type: none;
-  text-align: center;
-  margin: 0;
-  padding: 0;
+  align-items: center;
+  padding: 10px;
+  margin: auto;
 
 }
 
 .lowerBox li {
-  display: inline-block;
+  margin: auto;
+  width: 50%;
   padding: 10px;
-
+  align-items: center;
 }
 
 .alarmEdit{
@@ -312,8 +316,8 @@ html, body {
 }
 
 .difficultText{
-  font-size: 10px;
-  font-weight: bold;
+  font-size: 13px;
+  
 
 }
 
