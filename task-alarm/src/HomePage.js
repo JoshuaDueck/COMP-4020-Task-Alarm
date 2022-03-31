@@ -120,14 +120,16 @@ function HomePage(props) {
                 <div className="rectBox">
 
                 <form className="add-alarm-form">
-                    <label>
+                <div className="lowerBox">
+
+                <li>
                         <input className="time-input" type="time" name="time" defaultValue={ alarmObj.time }/>
-                    </label>
+                        </li>
                     <br/>
                     <br/>
-                    <label>
+                    </div>
+
                     <div className="lowerBox">
-                    <li className="difficultText">Difficulty</li>
 
                     <li>
                         <select className="difficulty-input" name="difficulty" >
@@ -136,7 +138,6 @@ function HomePage(props) {
                         </select>
                     </li>
                     </div>
-                    </label>
                 
                 </form>
                 </div>
