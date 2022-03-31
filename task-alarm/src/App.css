@@ -164,8 +164,9 @@ html, body {
 }
 
 .alarm-action {
-  height: 30px;
-  margin-right: 10px;
+  height: 100%;
+  float: right;
+  font-size: 100%;
   background-color: transparent;
   border: none;
 }
