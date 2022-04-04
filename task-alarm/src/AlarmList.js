@@ -1,5 +1,4 @@
 import { BsThreeDots, BsTrash } from 'react-icons/bs';
-import Switch from "react-input-switch";
 import React, { useState } from 'react';
 
 function AlarmList(props) {
