@@ -153,22 +153,8 @@ html, body {
   width: 100px;
   height: 50px;
   font-size: 20px;
-}
+  padding: 5px;
 
-.time-input {
-  width: 150px;
-  height: 50px;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.difficulty-input {
-  width: 150px;
-  height: 50px;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
 }
 
 .alarm-toggle {
@@ -178,25 +164,45 @@ html, body {
 }
 
 .alarm-action {
-  height: 30px;
-  margin-right: 10px;
+  height: 100%;
+  float: right;
+  font-size: 100%;
+  background-color: transparent;
+  border: none;
 }
 
-.save-button {
-  width: 100px;
-  height: 50px;
+.bottom-button {
+  height: 150px;
   font-size: 20px;
   font-weight: bold;
-  margin-top: 20px;
-  display: block;
+  display:inline;
   margin: auto;
+  width: 70%;
   left: 0px;
   right: 0px;
-  margin-top: 20px;
+  background-color: transparent;
+  position: fixed;
+  bottom: 10%;
+}
+
+.bottom-button-element{
+  display: block;
+  font-size: 20px;
+  padding: 20px;
+  margin: auto;
+  width: 60%;
+  height: 60%;
+}
+
+.bottom-button-element.back{
+  border: none;
+  height: 20%;
+  background-color: transparent;
 }
 
 .new-alarm-button {
   font-size: 20px;
+  border: none;
 }
 
 .mental-task-skip-button {
@@ -249,4 +255,140 @@ html, body {
 .success-button {
   font-size: 20px;
   height: 30px;
+}
+
+.rectBox {
+  height: 100%;
+  width:80%;
+  padding: 10px;
+  margin: auto;
+  border:transparent;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.time-input{
+  border:3px solid black;
+  width: 200px;
+  height: 50px;
+  margin: auto;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+.difficulty-input{
+  border:3px solid black;
+  margin: auto;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+
+
+.lowerBox{
+  list-style-type: none;
+  align-items: center;
+
+}
+
+.lowerBox li {
+  align-items: center;
+}
+
+.alarmEdit{
+  position: relative;
+
+
+}
+
+.difficultText{
+  font-size: 13px;
+  
+
+}
+
+.alarm-table-action-cell{
+  size:10px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+  right:5px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.strongAlarmPage {
+  display: block;
+  font-size: small;
+}
+
+.strongAlarmPage.strong{
+  font-size: small;
+  font-weight: bold;
+}
+
+.AlarmDiff{
+  width: 50%;
+
 }

@@ -1,10 +1,11 @@
 import Header from "./Header";
 import AlarmList from "./AlarmList";
-import React, { useState } from "react";
+import React, { useState , Component} from "react";
 
 function HomePage(props) {
     const [pageState, setPageState] = useState('viewing-alarms');
     const [alarmToEdit, setAlarmToEdit] = useState(null);
+    const [input, setInput] = useState('10:00');
 
     const handleBack = () => {
         setPageState('viewing-alarms');
@@ -78,45 +79,73 @@ function HomePage(props) {
         );
     } else if (pageState === 'adding-alarm') {
         return (
-            <div>
-                <Header left={<button onClick={() => handleBack()}>Back</button>} title="Add Alarm" />
+            <div className="alarmEdit">
+                <Header title="Add Alarm" />
+                <div className="rectBox">
+
                 <form className="add-alarm-form">
-                    <label>
-                        <input className="time-input" type="time" name="time" />
-                    </label>
+                <div className="lowerBox">
+                <li>
+                    
+                        <input className="time-input" type="time" name="time" defaultValue='00:00'/>
+                    
+                    </li>
                     <br/>
                     <br/>
-                    <label>
-                        <select className="difficulty-input" name="difficulty">
+                    </div>
+
+                    <div className="lowerBox">
+
+                    <li>
+                        <select className="difficulty-input" name="difficulty" >
                             <option value="Easy">Easy</option>
                             <option value="Hard">Hard</option>
                         </select>
-                    </label>
-                    <button className="save-button" onClick={() => saveAlarm({id: Math.floor(Math.random()*1000000), time: document.querySelector('input[name="time"]').value, type: document.querySelector('select[name="difficulty"]').value})}>Save</button>
+                    </li>
+                    </div>
                 </form>
+                </div>
+                <div className="bottom-button">
+                <button  className="bottom-button-element"onClick={() => saveAlarm({id: Math.floor(Math.random()*1000000), time: document.querySelector('input[name="time"]').value, type: document.querySelector('select[name="difficulty"]').value})}>Save</button>
+                <button className="bottom-button-element back" onClick={() => handleBack()}>Cancel</button>
+
+                </div>
             </div>
         );
     } else if (pageState === 'editing-alarm') {
         let alarmObj = props.alarmList.find((alarm) => alarm.id === alarmToEdit);
         return (
             <div>
-                <Header left={<button onClick={() => handleBack()}>Back</button>} title="Edit Alarm" />
+                <Header title="Edit Alarm" />
+                <div className="rectBox">
+
                 <form className="add-alarm-form">
-                    <label>
+                <div className="lowerBox">
+
+                <li>
                         <input className="time-input" type="time" name="time" defaultValue={ alarmObj.time }/>
-                    </label>
+                        </li>
                     <br/>
                     <br/>
-                    <label>
-                        <select className="difficulty-input" name="difficulty" defaultValue={ alarmObj.type }>
+                    </div>
+
+                    <div className="lowerBox">
+
+                    <li>
+                        <select className="difficulty-input" name="difficulty" >
                             <option value="Easy">Easy</option>
                             <option value="Hard">Hard</option>
                         </select>
-                    </label>
-                    <label>
-                        <button className="save-button" onClick={() => saveEditedAlarm({id: alarmObj.id, time: document.querySelector('input[name="time"]').value, type: document.querySelector('select[name="difficulty"]').value})}>Save</button>
-                    </label>
+                    </li>
+                    </div>
+                
                 </form>
+                </div>
+                <div className="bottom-button">
+                        <button className="bottom-button-element" onClick={() => saveEditedAlarm({id: alarmObj.id, time: document.querySelector('input[name="time"]').value, type: document.querySelector('select[name="difficulty"]').value})}>Save</button>
+                        <button className="bottom-button-element back" onClick={() => handleBack()}>Cancel</button>
+
+                </div>
             </div>
         );
     }

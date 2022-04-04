@@ -1,4 +1,10 @@
+import { BsThreeDots, BsTrash } from 'react-icons/bs';
+import Switch from "react-input-switch";
+import React, { useState } from 'react';
+
 function AlarmList(props) {
+    const [value, setValue] = useState('yes');
+
     const getHours = (time) => {
         return time.split(":")[0];
     }
@@ -24,15 +30,25 @@ function AlarmList(props) {
                         return (
                             <tr className="alarm-table-row" key={alarm.id}>
                                 <td className="alarm-table-cell"><strong>{timeConvert(alarm.time)}</strong></td>
-                                <td className="alarm-table-cell">Difficulty: <strong>{alarm.type}</strong></td>
-                                <td className="alarm-table-action-cell">
-                                    <input className="alarm-toggle" type="checkbox"></input>
+
+                                <td className="alarm-table-cell">
+                                    <td className='AlarmDiff'>
+                                    <li className="strongAlarmPage">Difficulty:</li>
+                                    <li className="strongAlarmPage strong">{alarm.type}</li>
+                                  
+                                    </td>
                                 </td>
                                 <td className="alarm-table-action-cell">
-                                    <button className="alarm-action" onClick={() => props.onDelete(alarm.id)}>Delete</button>
+                                <label class="switch">
+                                    <input type="checkbox"></input>
+                                    <span class="slider round"></span>
+                                </label>
                                 </td>
                                 <td className="alarm-table-action-cell">
-                                    <button className="alarm-action" onClick={() => props.onEdit(alarm.id)}>Edit</button>
+                                    <button className="alarm-action" onClick={() => props.onDelete(alarm.id)}><BsTrash  /></button>
+                                </td>
+                                <td className="alarm-table-action-cell">
+                                    <button className="alarm-action" onClick={() => props.onEdit(alarm.id)}><BsThreeDots  /></button>
                                 </td>
                             </tr>
                         );
